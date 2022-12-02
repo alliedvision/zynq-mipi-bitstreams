@@ -1,20 +1,34 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This fixed hardware platform file implements 4 mipi csi interfaces with 4 data lanes each. 
+It can be used with the 4x4 mipi csi FMC board designed to connect 4 Alvium 1500/1800 CSI cameras on a Xilinx ZCU 106. The FMC was designed for HPC0 of ZCU106 and is tested there only. 
+All cameras can be used simultaniously. There is an individual IIC attached to each camera connector.
+
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+
+1.	Plug 4x4 MIPI CSI FMC board on HPC0 connector on ZCU106
+2.	Connect an external 5V/10A power supply to the power connector of the FMC board.
+3.	Connect a DP display on the DP of ZCU106 (1080p30, 2160p30), connect USB-UART to host PC and boot from SDCard image
+
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+AMD/Xilinx Vivado platform: zcu106avt_fmc_4x4_wrapper_750x4YUV422_8bit_750x4YUV422_8bit_750x4YUV422_8bit_750x4YUV422_8bit.xsa
+yocto layer stack:
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+yocto Honister:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+poky/core 
+meta-openembedded/meta-oe
+meta-openembedded/meta-python
+meta-openembedded/meta-networking
+meta-openembedded/meta-multimedia
+meta-qt5
+
+Xilinx layers tag xlnx-rel-v2022.2:
+meta-xilinx-bsp
+meta-xilinx-core
+meta-xilinx-standalone
+meta-xilinx-pynq
+meta-xilinx-tools
+meta-alvium-avt
+
